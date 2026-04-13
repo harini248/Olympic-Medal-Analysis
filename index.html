@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Olympic Medal Distribution Through The Years</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,400;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1a1a;
+      --ring-blue: #0085C7;
+      --ring-yellow: #F4C300;
+      --ring-black: #000000;
+      --ring-green: #009F6B;
+      --ring-red: #DF0024;
+      --gold: #D4AF37;
+      --silver: #A8A9AD;
+      --bronze: #CD7F32;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      background: var(--cream);
+      color: var(--ink);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    /* HERO */
+    .hero {
+      min-height: 88vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding: 60px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-text { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      color: var(--ring-red);
+      margin-bottom: 20px;
+    }
+
+    .hero-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(4rem, 7vw, 7.5rem);
+      line-height: 0.95;
+      letter-spacing: 0.02em;
+      margin-bottom: 28px;
+    }
+    .hero-title span { color: var(--ring-red); }
+
+    .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: #666;
+      margin-bottom: 36px;
+      max-width: 420px;
+    }
+
+    .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; }
+    .hero-meta-item label {
+      display: block;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 4px;
+    }
+    .hero-meta-item span { font-weight: 500; font-size: 0.9rem; }
+
+    .hero-art {
+      position: relative; z-index: 2;
+      display: flex; flex-direction: column;
+      align-items: center; gap: 28px;
+    }
+
+    .rings-graphic { display: flex; flex-direction: column; }
+    .rings-row { display: flex; justify-content: center; }
+    .rings-row:last-child { margin-top: -28px; margin-left: 28px; }
+
+    .big-ring {
+      width: 108px; height: 108px;
+      border-radius: 50%; border: 13px solid;
+      margin: 0 -5px;
+      transition: transform 0.3s;
+    }
+    .big-ring:hover { transform: scale(1.07); }
+    .big-ring.blue   { border-color: var(--ring-blue); }
+    .big-ring.yellow { border-color: var(--ring-yellow); }
+    .big-ring.black  { border-color: var(--ring-black); }
+    .big-ring.green  { border-color: var(--ring-green); }
+    .big-ring.red    { border-color: var(--ring-red); }
+
+    .medal-strip { display: flex; gap: 14px; justify-content: center; }
+    .medal-chip {
+      width: 50px; height: 50px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.8rem; letter-spacing: 0.05em;
+      color: white; position: relative;
+    }
+    .medal-chip::after {
+      content: ''; position: absolute;
+      top: -11px; left: 50%; transform: translateX(-50%);
+      width: 3px; height: 13px; background: var(--ink);
+    }
+    .medal-chip.gold   { background: var(--gold); }
+    .medal-chip.silver { background: var(--silver); color: #333; }
+    .medal-chip.bronze { background: var(--bronze); }
+
+    /* PAGE CONTENT */
+    .page-content {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 80px 100px;
+    }
+
+    .section-label {
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--ring-blue);
+      margin-bottom: 12px;
+      margin-top: 72px;
+    }
+
+    h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 3vw, 2.7rem);
+      line-height: 1.15;
+      margin-bottom: 24px;
+      font-weight: 700;
+    }
+    h2 em { color: var(--ring-red); font-style: normal; }
+
+    p { margin-bottom: 16px; font-size: 1rem; color: #333; max-width: 800px; }
+    p:last-child { margin-bottom: 0; }
+    a { color: var(--ring-blue); }
+
+    .pull-quote { margin: 32px 0; }
+    .pull-quote p {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-style: italic;
+      color: var(--ring-red); max-width: 700px;
+    }
+
+    /* STAT BOXES */
+    .stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px; margin: 36px 0;
+    }
+    .stat-box {
+      border: 2px solid var(--ink);
+      padding: 24px 20px;
+      background: var(--cream);
+    }
+    .stat-box:nth-child(1) { box-shadow: 7px 7px 0px var(--ring-blue); }
+    .stat-box:nth-child(2) { box-shadow: 7px 7px 0px var(--ring-red); }
+    .stat-box:nth-child(3) { box-shadow: 7px 7px 0px var(--ring-yellow); }
+    .stat-number {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 3rem; line-height: 1; margin-bottom: 6px;
+    }
+    .stat-box:nth-child(1) .stat-number { color: var(--ring-blue); }
+    .stat-box:nth-child(2) .stat-number { color: var(--ring-red); }
+    .stat-box:nth-child(3) .stat-number { color: var(--ring-yellow); }
+    .stat-label { font-size: 0.78rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #666; }
+
+    /* DATA TABLE */
+    .data-table { width: 100%; border-collapse: collapse; margin: 28px 0; font-size: 0.9rem; }
+    .data-table th {
+      background: var(--ink); color: var(--cream);
+      padding: 11px 16px; text-align: left;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem; letter-spacing: 0.08em; font-weight: 400;
+    }
+    .data-table td { padding: 10px 16px; border-bottom: 1px solid #ddd8ce; vertical-align: top; }
+    .data-table tr:nth-child(even) td { background: #ede9e0; }
+    .data-table tr:hover td { background: #e4dfd4; }
+    .data-table td:first-child { font-family: monospace; font-size: 0.85rem; font-weight: 500; }
+
+    /* VIZ PLACEHOLDER */
+    .viz-placeholder {
+      background: #ece7dd;
+      border: 2px dashed #c4bfb4;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      padding: 60px 24px; margin: 28px 0 16px;
+      gap: 14px; min-height: 300px;
+    }
+    .viz-placeholder-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 0.15em; color: #aaa;
+    }
+    .viz-placeholder-sub { font-size: 0.75rem; color: #bbb; letter-spacing: 0.06em; text-align: center; }
+    .viz-bars { display: flex; gap: 8px; align-items: flex-end; height: 60px; }
+    .viz-bar { width: 14px; border-radius: 2px 2px 0 0; background: #c4bfb4; }
+
+    /* INTERACTION NOTE */
+    .interaction-note {
+      background: #ede9e0;
+      border-left: 3px solid var(--ring-blue);
+      padding: 14px 20px; margin: 12px 0 24px;
+      font-size: 0.88rem; color: #555; max-width: 800px;
+    }
+    .interaction-note strong { color: var(--ink); }
+
+    /* COUNTRY BADGES */
+    .country-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: #e2ddd4; color: var(--ink);
+      padding: 5px 13px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 0.95rem; letter-spacing: 0.1em;
+      margin-right: 8px; margin-bottom: 8px;
+    }
+
+    /* SUMMARY CARDS */
+    .summary-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 28px; margin-top: 28px;
+    }
+    .summary-card { padding: 26px; border: 1px solid #d4cfc6; }
+    .summary-card h3 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.1rem; letter-spacing: 0.1em; margin-bottom: 10px;
+    }
+    .summary-card p { font-size: 0.93rem; }
+
+    /* FOOTER */
+    footer {
+      background: var(--ink); color: var(--cream);
+      padding: 52px 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 40px; align-items: center;
+    }
+    .footer-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.7rem; letter-spacing: 0.06em; margin-bottom: 8px;
+    }
+    .footer-sub { font-size: 0.83rem; opacity: 0.55; }
+    .footer-right { text-align: right; }
+    .footer-names { font-size: 0.88rem; opacity: 0.75; line-height: 2; }
+    .footer-rings { display: flex; gap: 8px; margin-top: 16px; justify-content: flex-end; }
+    .footer-ring { width: 20px; height: 20px; border-radius: 50%; border: 3px solid; }
+    .footer-ring:nth-child(1) { border-color: var(--ring-blue); }
+    .footer-ring:nth-child(2) { border-color: var(--ring-yellow); }
+    .footer-ring:nth-child(3) { border-color: white; }
+    .footer-ring:nth-child(4) { border-color: var(--ring-green); }
+    .footer-ring:nth-child(5) { border-color: var(--ring-red); }
+
+    @media (max-width: 800px) {
+      .hero { grid-template-columns: 1fr; padding: 40px 28px; min-height: auto; }
+      .hero-art { display: none; }
+      .page-content { padding: 0 28px 80px; }
+      .summary-grid { grid-template-columns: 1fr; }
+      .stat-row { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; padding: 40px 28px; }
+      .footer-right { text-align: left; }
+      .footer-rings { justify-content: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-text">
+    <div class="hero-eyebrow">DS 3500 · Final Project</div>
+    <h1 class="hero-title">Olympic<br>Medal<br><span>Distribution</span><br>Through<br>The Years</h1>
+    <p class="hero-subtitle">120 years of competition, dominance, and the shifting tides of global athletic power.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <label>Dataset</label>
+        <span>Athens 1896 – Rio 2016</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Records</label>
+        <span>271,116 athletes</span>
+      </div>
+      <div class="hero-meta-item">
+        <label>Source</label>
+        <span>Kaggle / sports-reference</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="hero-art">
+    <img src="hero-graphic.png" alt="Olympic torch and rings graphic" style="width: 100%; max-width: 420px; display: block;" />
+  </div>
+</div>
+
+<!-- PAGE BODY -->
+<div class="page-content">
+
+  <!-- 1. OVERALL INTRODUCTION -->
+  <div class="section-label">Overall Introduction</div>
+  <h2>Why Olympic Medal Distribution <em>Matters</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+  <p>[FILL IN WITH TEXT...]</p>
+  <div class="pull-quote">
+    <p>"[FILL IN WITH QUOTE...]"</p>
+  </div>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <!-- 2. INTRODUCTION TO DATA -->
+  <div class="section-label">Introduction to the Data</div>
+  <h2>120 Years of <em>Athletes & Results</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <div class="stat-row">
+    <div class="stat-box">
+      <div class="stat-number">271K</div>
+      <div class="stat-label">Athlete–event records</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">120</div>
+      <div class="stat-label">Years of Olympic history</div>
+    </div>
+    <div class="stat-box">
+      <div class="stat-number">15</div>
+      <div class="stat-label">Features per record</div>
+    </div>
+  </div>
+
+  <table class="data-table">
+    <thead>
+      <tr><th>Variable Name</th><th>Type</th><th>Details</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>ID</td><td>Numeric</td><td>Unique athlete identifier</td></tr>
+      <tr><td>Name</td><td>String</td><td>Athlete's full name</td></tr>
+      <tr><td>Sex</td><td>Categorical</td><td>M / F</td></tr>
+      <tr><td>Age</td><td>Numeric</td><td>Athlete age at time of competition</td></tr>
+      <tr><td>Height</td><td>Numeric</td><td>Height in centimeters</td></tr>
+      <tr><td>Weight</td><td>Numeric</td><td>Weight in kilograms</td></tr>
+      <tr><td>Team</td><td>String</td><td>Country team name</td></tr>
+      <tr><td>NOC</td><td>Categorical</td><td>National Olympic Committee 3-letter code</td></tr>
+      <tr><td>Games</td><td>String</td><td>Year + Season (e.g. "2016 Summer")</td></tr>
+      <tr><td>Year</td><td>Numeric</td><td>Olympic year (1896–2016)</td></tr>
+      <tr><td>Season</td><td>Categorical</td><td>Summer / Winter</td></tr>
+      <tr><td>City</td><td>String</td><td>Host city</td></tr>
+      <tr><td>Sport</td><td>String</td><td>Sport category</td></tr>
+      <tr><td>Event</td><td>String</td><td>Specific event name</td></tr>
+      <tr><td>Medal</td><td>Categorical</td><td>Gold / Silver / Bronze / NA</td></tr>
+    </tbody>
+  </table>
+
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <!-- 3. VIZ 1 — STATIC OVERVIEW -->
+  <div class="section-label">Overview of Medal Distribution</div>
+  <h2>Medal Counts <em>Over Time</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <div class="viz-placeholder">
+    <div class="viz-bars">
+      <div class="viz-bar" style="height:35px;"></div>
+      <div class="viz-bar" style="height:55px;"></div>
+      <div class="viz-bar" style="height:42px;"></div>
+      <div class="viz-bar" style="height:70px;"></div>
+      <div class="viz-bar" style="height:50px;"></div>
+      <div class="viz-bar" style="height:80px;"></div>
+      <div class="viz-bar" style="height:60px;"></div>
+    </div>
+    <div class="viz-placeholder-label">Altair Visualization — Coming Soon</div>
+    <div class="viz-placeholder-sub">Static time series · Total medals by type · 1896–2016</div>
+  </div>
+
+  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+
+  <!-- 4. VIZ 2 — STATIC COUNTRY COMPARISON -->
+  <div class="section-label">Medal Distribution by Country</div>
+  <h2>Who Wins, and <em>How Much?</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <div class="viz-placeholder">
+    <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-start;">
+      <div style="height:16px;width:220px;background:#c4bfb4;border-radius:2px;"></div>
+      <div style="height:16px;width:170px;background:#c4bfb4;border-radius:2px;"></div>
+      <div style="height:16px;width:195px;background:#c4bfb4;border-radius:2px;"></div>
+      <div style="height:16px;width:140px;background:#c4bfb4;border-radius:2px;"></div>
+      <div style="height:16px;width:115px;background:#c4bfb4;border-radius:2px;"></div>
+    </div>
+    <div class="viz-placeholder-label">Altair Visualization — Coming Soon</div>
+    <div class="viz-placeholder-sub">Static stacked bar chart · Medal composition · Top nations</div>
+  </div>
+
+  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+
+  <!-- 5. VIZ 3 — INTERACTIVE -->
+  <div class="section-label">Interactive Country-Level Comparison</div>
+  <h2>Explore Nations <em>Head-to-Head</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <p>Featured countries include:
+    <span class="country-badge">🇺🇸 USA</span>
+    <span class="country-badge">🇷🇺 USSR / Russia</span>
+    <span class="country-badge">🇨🇳 China</span>
+    <span class="country-badge">🇩🇪 Germany</span>
+    <span class="country-badge">🇬🇧 Great Britain</span>
+  </p>
+
+  <div class="interaction-note">
+    <strong>How to use this visualization:</strong> [FILL IN WITH INTERACTION INSTRUCTIONS — e.g. how to select countries, hover for tooltips, filter by year range, etc.]
+  </div>
+
+  <div class="viz-placeholder">
+    <div class="viz-bars" style="align-items:flex-end; gap:12px;">
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <div style="height:70px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+        <div style="height:45px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <div style="height:100px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+        <div style="height:65px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
+        <div style="height:80px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+        <div style="height:95px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
+      </div>
+    </div>
+    <div class="viz-placeholder-label">D3 Interactive Visualization — Coming Soon</div>
+    <div class="viz-placeholder-sub">Interactive · Select countries · Hover for tooltips · Filter by year</div>
+  </div>
+
+  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+
+  <!-- 6. SUMMARY & CONCLUSION -->
+  <div class="section-label">Summary & Additional Work</div>
+  <h2>Conclusions and <em>Future Directions</em></h2>
+  <p>[FILL IN WITH TEXT...]</p>
+
+  <div class="summary-grid">
+    <div class="summary-card">
+      <h3>Key Findings</h3>
+      <p>[FILL IN WITH TEXT...]</p>
+    </div>
+    <div class="summary-card">
+      <h3>Limitations</h3>
+      <p>[FILL IN WITH TEXT...]</p>
+    </div>
+    <div class="summary-card">
+      <h3>Future Work</h3>
+      <p>[FILL IN WITH TEXT...]</p>
+    </div>
+    <div class="summary-card">
+      <h3>Contact</h3>
+      <p>Alex Popov · <a href="/cdn-cgi/l/email-protection#f68699869980d8979ab6989984829e93978582938498d8939283"><span class="__cf_email__" data-cfemail="52223d223d247c333e123c3d20263a3733212637203c7c373627">[email&#160;protected]</span></a><br>
+      Harini Mandalapu · <a href="/cdn-cgi/l/email-protection#f09d919e94919c918085de98b09e9f8284989591838495829ede959485"><span class="__cf_email__" data-cfemail="82efe3ece6e3eee3f2f7aceac2ecedf0f6eae7e3f1f6e7f0ecace7e6f7">[email&#160;protected]</span></a></p>
+    </div>
+  </div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-title">Olympic Medal Distribution<br>Through The Years</div>
+    <div class="footer-sub">DS 3500 · Northeastern University · Spring 2025</div>
+  </div>
+  <div class="footer-right">
+    <div class="footer-names">Alex 
