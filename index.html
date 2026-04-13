@@ -32,16 +32,10 @@
 
     /* HERO */
     .hero {
-      min-height: 88vh;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      padding: 60px 80px;
-      position: relative;
-      overflow: hidden;
+      padding: 80px 60px 60px;
     }
 
-    .hero-text { position: relative; z-index: 2; }
+    .hero-text { max-width: 1200px; }
 
     .hero-eyebrow {
       font-size: 0.72rem;
@@ -67,7 +61,6 @@
       font-size: 1.2rem;
       color: #666;
       margin-bottom: 36px;
-      max-width: 420px;
     }
 
     .hero-meta { display: flex; gap: 40px; flex-wrap: wrap; }
@@ -123,9 +116,8 @@
 
     /* PAGE CONTENT */
     .page-content {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 80px 100px;
+      max-width: 1200px;
+      padding: 0 60px 100px;
     }
 
     .section-label {
@@ -147,7 +139,7 @@
     }
     h2 em { color: var(--ring-red); font-style: normal; }
 
-    p { margin-bottom: 16px; font-size: 1rem; color: #333; max-width: 800px; }
+    p { margin-bottom: 16px; font-size: 1rem; color: #333; }
     p:last-child { margin-bottom: 0; }
     a { color: var(--ring-blue); }
 
@@ -265,7 +257,7 @@
     .footer-ring:nth-child(5) { border-color: var(--ring-red); }
 
     @media (max-width: 800px) {
-      .hero { grid-template-columns: 1fr; padding: 40px 28px; min-height: auto; }
+      .hero { padding: 40px 28px; }
       .hero-art { display: none; }
       .page-content { padding: 0 28px 80px; }
       .summary-grid { grid-template-columns: 1fr; }
@@ -300,9 +292,7 @@
     </div>
   </div>
 
-  <div class="hero-art">
-    <img src="hero-graphic.png" alt="Olympic torch and rings graphic" style="width: 100%; max-width: 420px; display: block;" />
-  </div>
+
 </div>
 
 <!-- PAGE BODY -->
@@ -368,19 +358,7 @@
   <h2>Medal Counts <em>Over Time</em></h2>
   <p>[FILL IN WITH TEXT...]</p>
 
-  <div class="viz-placeholder">
-    <div class="viz-bars">
-      <div class="viz-bar" style="height:35px;"></div>
-      <div class="viz-bar" style="height:55px;"></div>
-      <div class="viz-bar" style="height:42px;"></div>
-      <div class="viz-bar" style="height:70px;"></div>
-      <div class="viz-bar" style="height:50px;"></div>
-      <div class="viz-bar" style="height:80px;"></div>
-      <div class="viz-bar" style="height:60px;"></div>
-    </div>
-    <div class="viz-placeholder-label">Altair Visualization — Coming Soon</div>
-    <div class="viz-placeholder-sub">Static time series · Total medals by type · 1896–2016</div>
-  </div>
+  <p>[INSERT VIZ HERE]</p>
 
   <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
 
@@ -389,17 +367,7 @@
   <h2>Who Wins, and <em>How Much?</em></h2>
   <p>[FILL IN WITH TEXT...]</p>
 
-  <div class="viz-placeholder">
-    <div style="display:flex;flex-direction:column;gap:7px;align-items:flex-start;">
-      <div style="height:16px;width:220px;background:#c4bfb4;border-radius:2px;"></div>
-      <div style="height:16px;width:170px;background:#c4bfb4;border-radius:2px;"></div>
-      <div style="height:16px;width:195px;background:#c4bfb4;border-radius:2px;"></div>
-      <div style="height:16px;width:140px;background:#c4bfb4;border-radius:2px;"></div>
-      <div style="height:16px;width:115px;background:#c4bfb4;border-radius:2px;"></div>
-    </div>
-    <div class="viz-placeholder-label">Altair Visualization — Coming Soon</div>
-    <div class="viz-placeholder-sub">Static stacked bar chart · Medal composition · Top nations</div>
-  </div>
+  <p>[INSERT VIZ HERE]</p>
 
   <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
 
@@ -420,24 +388,7 @@
     <strong>How to use this visualization:</strong> [FILL IN WITH INTERACTION INSTRUCTIONS — e.g. how to select countries, hover for tooltips, filter by year range, etc.]
   </div>
 
-  <div class="viz-placeholder">
-    <div class="viz-bars" style="align-items:flex-end; gap:12px;">
-      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
-        <div style="height:70px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-        <div style="height:45px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
-        <div style="height:100px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-        <div style="height:65px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-      </div>
-      <div style="display:flex;flex-direction:column;gap:4px;align-items:center;">
-        <div style="height:80px;width:28px;background:var(--ring-blue);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-        <div style="height:95px;width:28px;background:var(--ring-red);opacity:0.4;border-radius:2px 2px 0 0;"></div>
-      </div>
-    </div>
-    <div class="viz-placeholder-label">D3 Interactive Visualization — Coming Soon</div>
-    <div class="viz-placeholder-sub">Interactive · Select countries · Hover for tooltips · Filter by year</div>
-  </div>
+  <p>[INSERT VIZ HERE]</p>
 
   <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
 
