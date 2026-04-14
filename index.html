@@ -301,17 +301,17 @@
   <!-- 1. OVERALL INTRODUCTION -->
   <div class="section-label">Overall Introduction</div>
   <h2>Why Olympic Medal Distribution <em>Matters</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>The Olympic Games represent the largest international sporting competition in the world, bringing together athletes from nearly every nation across hundreds of events. Since the modern Games began in Athens in 1896, the Olympics have grown dramatically in scale and global participation. Yet beneath the spectacle of athletic achievement, the distribution of medals tells a more complicated story about power, resources, and inequality on a global scale.</p>
+  <p>Understanding how Olympic medals are distributed across countries and over time reveals patterns that go far beyond sport. Nations with stronger economies, larger populations, and greater government investment in athletic development tend to win disproportionately more medals. This creates a persistent concentration of success among a small group of dominant countries, raising important questions about what medal counts actually measure and whether they reflect true athletic achievement or simply reflect structural advantages.</p>
   <div class="pull-quote">
-    <p>"[FILL IN WITH QUOTE...]"</p>
+    <p>"Olympic medal counts are not just a record of athletic achievement. They are a reflection of a nation's resources, history, and place in the global order."</p>
   </div>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>This project analyzes 120 years of Olympic data to explore how medal distribution has shifted over time, which nations have dominated, and what factors may contribute to those patterns. We also examine how participation has changed across gender and season, offering a broader picture of how the Olympics have evolved as a global institution.</p>
 
   <!-- 2. INTRODUCTION TO DATA -->
   <div class="section-label">Introduction to the Data</div>
   <h2>120 Years of <em>Athletes & Results</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>Our analysis uses the Kaggle dataset "120 years of Olympic history: athletes and results," compiled by rgriffin and originally scraped from sports-reference.com in May 2018. The dataset covers the modern Olympic Games from Athens 1896 through Rio 2016 and contains 271,116 rows, where each row represents one athlete competing in one event. With 15 features spanning athlete demographics, competition identifiers, and outcome information, it provides a rich foundation for exploring long-term trends in medal distribution.</p>
 
   <div class="stat-row">
     <div class="stat-box">
@@ -351,9 +351,7 @@
     </tbody>
   </table>
 
-  <p>[FILL IN WITH TEXT...]</p>
-
-  <!-- 3. VIZ 1 — MEDAL COUNTS OVER TIME -->
+  <p>For our analysis, we filtered the data to include only medal-winning athletes and deduplicated records by Year, Season, Event, NOC, and Medal to avoid overcounting team events. This ensures that a single gold medal in a team relay is counted once per country rather than once per athlete. The dataset does not include external variables such as GDP or population, so our analysis focuses on describing and comparing medal patterns rather than explaining their causes.</p> — MEDAL COUNTS OVER TIME -->
   <div class="section-label">Overview of Medal Distribution</div>
   <h2>Medal Counts <em>Over Time</em></h2>
   <p>This visualization shows how Olympic medal counts have changed over time, separated by medal type (Gold, Silver, Bronze) and by Olympic season (Summer vs. Winter). To create this, the dataset was first filtered to include only medal-winning entries, and then deduplicated by Year, Season, Event, NOC, and Medal to ensure that team events were not overcounted (since multiple athletes can receive the same medal for a single event). The data was then aggregated by year and medal type to produce total counts. Separating Summer and Winter Olympics helps avoid misleading patterns, as the two follow different schedules and scales.</p>
@@ -389,28 +387,29 @@
 
   <p>The chart reveals that early Olympic Games were almost entirely dominated by male athletes, with women representing only a very small share. Over time, however, the proportion of female medal-winning athletes increases steadily, especially in the Summer Olympics, approaching near parity in recent decades. This highlights the significant progress toward gender balance in Olympic competition.</p>
 
-  <!-- 6. SUMMARY & CONCLUSION -->
+  <!-- SUMMARY & CONCLUSION -->
   <div class="section-label">Summary & Additional Work</div>
   <h2>Conclusions and <em>Future Directions</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>This project explored 120 years of Olympic medal distribution through four visualizations covering trends over time, country-level comparisons, geographic patterns, and gender representation. Taken together, these visualizations paint a consistent picture: Olympic success has historically been concentrated among a small number of wealthy, resource-rich nations, and the structure of that inequality has remained largely stable even as the Games have expanded in scale and global participation.</p>
+  <p>At the same time, the data reveals meaningful progress in at least one dimension. Gender representation among medal-winning athletes has shifted dramatically since the early 1900s, with women now approaching near parity in the Summer Olympics. This reflects decades of policy changes, advocacy, and institutional reform within the Olympic movement.</p>
 
   <div class="summary-grid">
     <div class="summary-card">
       <h3>Key Findings</h3>
-      <p>[FILL IN WITH TEXT...]</p>
+      <p>Medal counts have grown steadily since 1896, driven by the expansion of events and participating nations. The United States, Soviet Union, and a small group of European nations account for a disproportionate share of all medals ever awarded. Geographic concentration is strongest in North America, Western Europe, and parts of Asia.</p>
     </div>
     <div class="summary-card">
       <h3>Limitations</h3>
-      <p>[FILL IN WITH TEXT...]</p>
+      <p>The dataset ends at Rio 2016 and does not include Tokyo 2020 or Paris 2024. It also lacks external variables like GDP, population, or government sports funding, which would be necessary to explain why certain nations dominate. Medal counts also do not account for the size of a country's delegation or the number of events it enters.</p>
     </div>
     <div class="summary-card">
       <h3>Future Work</h3>
-      <p>[FILL IN WITH TEXT...]</p>
+      <p>Future analysis could incorporate GDP per capita and population data to compute medals-per-capita rankings, offering a fairer cross-national comparison. Adding data from more recent Games would also allow for analysis of emerging athletic powers. A time-series breakdown by sport category could reveal which disciplines drive national medal totals.</p>
     </div>
     <div class="summary-card">
       <h3>Contact</h3>
-      <p>Alex Popov · <a href="/cdn-cgi/l/email-protection#f68699869980d8979ab6989984829e93978582938498d8939283"><span class="__cf_email__" data-cfemail="52223d223d247c333e123c3d20263a3733212637203c7c373627">[email&#160;protected]</span></a><br>
-      Harini Mandalapu · <a href="/cdn-cgi/l/email-protection#f09d919e94919c918085de98b09e9f8284989591838495829ede959485"><span class="__cf_email__" data-cfemail="82efe3ece6e3eee3f2f7aceac2ecedf0f6eae7e3f1f6e7f0ecace7e6f7">[email&#160;protected]</span></a></p>
+      <p>Alex Popov · popov.al@northeastern.edu<br>
+      Harini Mandalapu · mandalapu.h@northeastern.edu</p>
     </div>
   </div>
 
