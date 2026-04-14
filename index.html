@@ -273,7 +273,7 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-text">
-    <div class="hero-eyebrow">DS 3500 · Final Project</div>
+    <div class="hero-eyebrow">DS 4200 · Final Project</div>
     <h1 class="hero-title">Olympic<br>Medal<br><span>Distribution</span><br>Through<br>The Years</h1>
     <p class="hero-subtitle">120 years of competition, dominance, and the shifting tides of global athletic power.</p>
     <div class="hero-meta">
@@ -353,42 +353,41 @@
 
   <p>[FILL IN WITH TEXT...]</p>
 
-  <!-- 3. VIZ 1 — STATIC OVERVIEW -->
+  <!-- 3. VIZ 1 — MEDAL COUNTS OVER TIME -->
   <div class="section-label">Overview of Medal Distribution</div>
   <h2>Medal Counts <em>Over Time</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>This visualization shows how Olympic medal counts have changed over time, separated by medal type (Gold, Silver, Bronze) and by Olympic season (Summer vs. Winter). To create this, the dataset was first filtered to include only medal-winning entries, and then deduplicated by Year, Season, Event, NOC, and Medal to ensure that team events were not overcounted (since multiple athletes can receive the same medal for a single event). The data was then aggregated by year and medal type to produce total counts. Separating Summer and Winter Olympics helps avoid misleading patterns, as the two follow different schedules and scales.</p>
 
-  <p>[INSERT VIZ HERE]</p>
+  <iframe src="viz1.html" width="100%" height="450px" frameborder="0" scrolling="no"></iframe>
 
-  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+  <p>From the chart, we see a clear long-term increase in medal counts, especially in the Summer Olympics, reflecting the expansion of events and global participation over time. There are also noticeable gaps during periods like World War I and World War II, where the Games were not held. Overall, the visualization highlights both the growth of the Olympics and the structural differences between Summer and Winter competitions.</p>
 
-  <!-- 4. VIZ 2 — STATIC COUNTRY COMPARISON -->
+  <!-- 4. VIZ 2 — MEDAL DISTRIBUTION BY COUNTRY -->
   <div class="section-label">Medal Distribution by Country</div>
   <h2>Who Wins, and <em>How Much?</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
+  <p>This interactive visualization compares the distribution of Olympic medals among the top-performing countries, with the ability to toggle between Summer and Winter Games using the dropdown menu. To prepare the data, medal-winning records were first deduplicated by Year, Season, Event, NOC, and Medal to ensure that team-based medals were not counted multiple times. The data was then aggregated by country and medal type, and the top 10 countries were identified separately within each season based on total medal counts.</p>
 
-  <p>[INSERT VIZ HERE]</p>
+  <iframe src="viz2.html" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
 
-  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+  <p>The stacked bar chart shows how each country's medals are divided across Gold, Silver, and Bronze, while also highlighting differences in overall medal volume. A key takeaway is that Olympic success is concentrated among a small group of dominant nations, but the leading countries vary between Summer and Winter Olympics due to differences in sports, geography, and competitive specialization. The interactive filter makes it easier to directly compare these patterns across seasons.</p>
 
-  <!-- 5. VIZ 3 — INTERACTIVE -->
-  <div class="section-label">Interactive Country-Level Comparison</div>
-  <h2>Explore Nations <em>Head-to-Head</em></h2>
-  <p>[FILL IN WITH TEXT...]</p>
+  <!-- 5. VIZ 3 — CHOROPLETH MAP -->
+  <div class="section-label">Geographic Distribution of Medals</div>
+  <h2>Mapping Olympic Success <em>Around the World</em></h2>
+  <p>This choropleth map shows the geographic distribution of Olympic medals across countries in the Summer Games. Because the dataset contains one row per athlete-event, medal-winning records were first deduplicated by Year, Season, Event, NOC, and Medal so that team events were not counted multiple times. The data was then filtered to Summer Olympics only, aggregated by country, and mapped using each nation's three-letter Olympic committee code. To make differences across countries easier to see, the map uses a logarithmic color scale, since a small number of countries account for a disproportionately large share of total medals.</p>
 
-  <p>Featured countries include:
-    <span class="country-badge">🇺🇸 USA</span>
-    <span class="country-badge">🇷🇺 USSR / Russia</span>
-    <span class="country-badge">🇨🇳 China</span>
-    <span class="country-badge">🇩🇪 Germany</span>
-    <span class="country-badge">🇬🇧 Great Britain</span>
-  </p>
+  <iframe src="viz3.html" width="100%" height="550px" frameborder="0" scrolling="no"></iframe>
 
+  <p>The resulting pattern highlights a strong concentration of Olympic success in North America, Europe, and parts of Asia, while many other countries have much lower totals. Overall, this visualization reinforces the idea that Olympic medal distribution is highly uneven across the world.</p>
 
+  <!-- 6. VIZ 4 — GENDER REPRESENTATION -->
+  <div class="section-label">Gender Representation Over Time</div>
+  <h2>Progress Toward <em>Gender Parity</em></h2>
+  <p>This visualization shows how the proportion of medal-winning athletes by gender has changed over time, with a dropdown to switch between Summer and Winter Olympics. Unlike previous charts that focus on total counts, this chart represents each gender as a share of total medal-winning athletes in a given year, allowing for a clearer comparison of relative representation. The data was aggregated by year, season, and sex, and then normalized so that each year sums to 100%.</p>
 
-  <p>[INSERT VIZ HERE]</p>
+  <iframe src="viz4.html" width="100%" height="500px" frameborder="0" scrolling="no"></iframe>
 
-  <p>[FILL IN WITH TAKEAWAY/CONCLUSION FOR THIS VISUALIZATION...]</p>
+  <p>The chart reveals that early Olympic Games were almost entirely dominated by male athletes, with women representing only a very small share. Over time, however, the proportion of female medal-winning athletes increases steadily, especially in the Summer Olympics, approaching near parity in recent decades. This highlights the significant progress toward gender balance in Olympic competition.</p>
 
   <!-- 6. SUMMARY & CONCLUSION -->
   <div class="section-label">Summary & Additional Work</div>
