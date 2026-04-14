@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <style>
+    #vis.vega-embed {
+      width: 100%;
+      display: flex;
+    }
+
+    #vis.vega-embed details,
+    #vis.vega-embed details summary {
+      position: relative;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega@6"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-lite@6.1.0"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/vega-embed@7"></script>
+</head>
+<body>
+  <div id="vis"></div>
+  <script>
+    (function(vegaEmbed) {
+      var spec = {"config": {"view": {"continuousWidth": 300, "continuousHeight": 300}}, "data": {"name": "data-3b91af7dc9bfc2da7a31483cc64647dc"}, "mark": {"type": "bar"}, "encoding": {"color": {"field": "Medal", "scale": {"domain": ["Gold", "Silver", "Bronze"], "range": ["#D4AF37", "#C0C0C0", "#CD7F32"]}, "sort": ["Gold", "Silver", "Bronze"], "title": "Medal Type", "type": "nominal"}, "opacity": {"condition": {"param": "param_4a62d3a95450fdb7", "value": 1}, "value": 0.8}, "order": {"field": "medal_order", "sort": "descending", "type": "quantitative"}, "tooltip": [{"field": "Season", "type": "nominal"}, {"field": "NOC", "type": "nominal"}, {"field": "Medal", "type": "nominal"}, {"field": "Count", "type": "quantitative"}], "x": {"field": "NOC", "sort": "-y", "title": "Country (NOC Code)", "type": "nominal"}, "y": {"aggregate": "sum", "field": "Count", "title": "Total Medals", "type": "quantitative"}}, "height": 400, "params": [{"name": "param_f7f00116a6332315", "select": {"type": "point", "fields": ["Season"]}, "bind": {"input": "select", "options": ["Summer", "Winter"], "name": "Select Season: "}, "value": "Summer"}, {"name": "param_4a62d3a95450fdb7", "select": {"type": "point", "clear": "mouseout", "fields": ["NOC"], "on": "mouseover"}}], "title": "Medal Distribution Among Top Olympic Countries by Season", "transform": [{"filter": {"param": "param_f7f00116a6332315"}}], "width": 700, "$schema": "https://vega.github.io/schema/vega-lite/v6.1.0.json", "datasets": {"data-3b91af7dc9bfc2da7a31483cc64647dc": [{"Season": "Summer", "NOC": "AUS", "Medal": "Bronze", "Count": 192, "medal_order": 2}, {"Season": "Summer", "NOC": "AUS", "Medal": "Gold", "Count": 147, "medal_order": 0}, {"Season": "Summer", "NOC": "AUS", "Medal": "Silver", "Count": 167, "medal_order": 1}, {"Season": "Summer", "NOC": "CHN", "Medal": "Bronze", "Count": 153, "medal_order": 2}, {"Season": "Summer", "NOC": "CHN", "Medal": "Gold", "Count": 227, "medal_order": 0}, {"Season": "Summer", "NOC": "CHN", "Medal": "Silver", "Count": 162, "medal_order": 1}, {"Season": "Summer", "NOC": "FRA", "Medal": "Bronze", "Count": 282, "medal_order": 2}, {"Season": "Summer", "NOC": "FRA", "Medal": "Gold", "Count": 233, "medal_order": 0}, {"Season": "Summer", "NOC": "FRA", "Medal": "Silver", "Count": 255, "medal_order": 1}, {"Season": "Summer", "NOC": "GBR", "Medal": "Bronze", "Count": 298, "medal_order": 2}, {"Season": "Summer", "NOC": "GBR", "Medal": "Gold", "Count": 278, "medal_order": 0}, {"Season": "Summer", "NOC": "GBR", "Medal": "Silver", "Count": 316, "medal_order": 1}, {"Season": "Summer", "NOC": "GER", "Medal": "Bronze", "Count": 282, "medal_order": 2}, {"Season": "Summer", "NOC": "GER", "Medal": "Gold", "Count": 233, "medal_order": 0}, {"Season": "Summer", "NOC": "GER", "Medal": "Silver", "Count": 261, "medal_order": 1}, {"Season": "Summer", "NOC": "HUN", "Medal": "Bronze", "Count": 172, "medal_order": 2}, {"Season": "Summer", "NOC": "HUN", "Medal": "Gold", "Count": 178, "medal_order": 0}, {"Season": "Summer", "NOC": "HUN", "Medal": "Silver", "Count": 154, "medal_order": 1}, {"Season": "Summer", "NOC": "ITA", "Medal": "Bronze", "Count": 198, "medal_order": 2}, {"Season": "Summer", "NOC": "ITA", "Medal": "Gold", "Count": 219, "medal_order": 0}, {"Season": "Summer", "NOC": "ITA", "Medal": "Silver", "Count": 191, "medal_order": 1}, {"Season": "Summer", "NOC": "SWE", "Medal": "Bronze", "Count": 188, "medal_order": 2}, {"Season": "Summer", "NOC": "SWE", "Medal": "Gold", "Count": 150, "medal_order": 0}, {"Season": "Summer", "NOC": "SWE", "Medal": "Silver", "Count": 175, "medal_order": 1}, {"Season": "Summer", "NOC": "URS", "Medal": "Bronze", "Count": 294, "medal_order": 2}, {"Season": "Summer", "NOC": "URS", "Medal": "Gold", "Count": 394, "medal_order": 0}, {"Season": "Summer", "NOC": "URS", "Medal": "Silver", "Count": 317, "medal_order": 1}, {"Season": "Summer", "NOC": "USA", "Medal": "Bronze", "Count": 707, "medal_order": 2}, {"Season": "Summer", "NOC": "USA", "Medal": "Gold", "Count": 1035, "medal_order": 0}, {"Season": "Summer", "NOC": "USA", "Medal": "Silver", "Count": 802, "medal_order": 1}, {"Season": "Winter", "NOC": "AUT", "Medal": "Bronze", "Count": 81, "medal_order": 2}, {"Season": "Winter", "NOC": "AUT", "Medal": "Gold", "Count": 59, "medal_order": 0}, {"Season": "Winter", "NOC": "AUT", "Medal": "Silver", "Count": 78, "medal_order": 1}, {"Season": "Winter", "NOC": "CAN", "Medal": "Bronze", "Count": 52, "medal_order": 2}, {"Season": "Winter", "NOC": "CAN", "Medal": "Gold", "Count": 62, "medal_order": 0}, {"Season": "Winter", "NOC": "CAN", "Medal": "Silver", "Count": 56, "medal_order": 1}, {"Season": "Winter", "NOC": "FIN", "Medal": "Bronze", "Count": 57, "medal_order": 2}, {"Season": "Winter", "NOC": "FIN", "Medal": "Gold", "Count": 42, "medal_order": 0}, {"Season": "Winter", "NOC": "FIN", "Medal": "Silver", "Count": 62, "medal_order": 1}, {"Season": "Winter", "NOC": "GER", "Medal": "Bronze", "Count": 58, "medal_order": 2}, {"Season": "Winter", "NOC": "GER", "Medal": "Gold", "Count": 86, "medal_order": 0}, {"Season": "Winter", "NOC": "GER", "Medal": "Silver", "Count": 84, "medal_order": 1}, {"Season": "Winter", "NOC": "NOR", "Medal": "Bronze", "Count": 100, "medal_order": 2}, {"Season": "Winter", "NOC": "NOR", "Medal": "Gold", "Count": 111, "medal_order": 0}, {"Season": "Winter", "NOC": "NOR", "Medal": "Silver", "Count": 108, "medal_order": 1}, {"Season": "Winter", "NOC": "RUS", "Medal": "Bronze", "Count": 35, "medal_order": 2}, {"Season": "Winter", "NOC": "RUS", "Medal": "Gold", "Count": 49, "medal_order": 0}, {"Season": "Winter", "NOC": "RUS", "Medal": "Silver", "Count": 40, "medal_order": 1}, {"Season": "Winter", "NOC": "SUI", "Medal": "Bronze", "Count": 47, "medal_order": 2}, {"Season": "Winter", "NOC": "SUI", "Medal": "Gold", "Count": 50, "medal_order": 0}, {"Season": "Winter", "NOC": "SUI", "Medal": "Silver", "Count": 40, "medal_order": 1}, {"Season": "Winter", "NOC": "SWE", "Medal": "Bronze", "Count": 54, "medal_order": 2}, {"Season": "Winter", "NOC": "SWE", "Medal": "Gold", "Count": 50, "medal_order": 0}, {"Season": "Winter", "NOC": "SWE", "Medal": "Silver", "Count": 40, "medal_order": 1}, {"Season": "Winter", "NOC": "URS", "Medal": "Bronze", "Count": 59, "medal_order": 2}, {"Season": "Winter", "NOC": "URS", "Medal": "Gold", "Count": 77, "medal_order": 0}, {"Season": "Winter", "NOC": "URS", "Medal": "Silver", "Count": 56, "medal_order": 1}, {"Season": "Winter", "NOC": "USA", "Medal": "Bronze", "Count": 84, "medal_order": 2}, {"Season": "Winter", "NOC": "USA", "Medal": "Gold", "Count": 96, "medal_order": 0}, {"Season": "Winter", "NOC": "USA", "Medal": "Silver", "Count": 99, "medal_order": 1}]}};
+      var embedOpt = {"mode": "vega-lite"};
+
+      function showError(el, error){
+          el.innerHTML = ('<div style="color:red;">'
+                          + '<p>JavaScript Error: ' + error.message + '</p>'
+                          + "<p>This usually means there's a typo in your chart specification. "
+                          + "See the javascript console for the full traceback.</p>"
+                          + '</div>');
+          throw error;
+      }
+      const el = document.getElementById('vis');
+      vegaEmbed("#vis", spec, embedOpt)
+        .catch(error => showError(el, error));
+    })(vegaEmbed);
+
+  </script>
+</body>
+</html>
